@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\product;
+use Illuminate\Support\Facades\Cache;
 
 class ProductController extends Controller
 {
@@ -13,6 +14,25 @@ class ProductController extends Controller
    * @param  Request  $request
    * @return Response
    */
+
+  public function test()
+  {
+    return view('test');
+  }
+
+  public function testw(Request $request)
+  {
+      $this->validate($request, [
+          'title' => 'required|min:5',
+          'body' => 'required',
+      ]);
+  
+      return view('test');
+    }
+
+
+
+
   public function insertr(Request $request)
   {
       $path = $request->file('image')->store('uploads', 'public');
@@ -27,6 +47,8 @@ class ProductController extends Controller
     return view('insertr', compact('path', 'path2', 'path3'));
   }
 
+
+  
   public function upload()
   {
       return view('insertr');

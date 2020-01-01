@@ -10,6 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// ТЕСТ 
+Route::get('test', 'ProductController@test');
+Route::post('testw', 'ProductController@testw');
+
+
+Route::get('sendbasicemail','MailController@index');
+Route::post('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@basic_email');
+
+
+
+Route::get('/send-email', 'MailController@send');
+
+// Авторизация
 Auth::routes();
 
 
