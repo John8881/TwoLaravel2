@@ -2,56 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\product;
 use Illuminate\Support\Facades\Cache;
 
+
 class ProductController extends Controller
 {
     /**
-   * Создание нового экземпляра рейса.
-   *
-   * @param  Request  $request
-   * @return Response
-   */
+     * Создание нового экземпляра рейса.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
 
-  public function test()
-  {
-    return view('test');
-  }
-
-  public function testw(Request $request)
-  {
-      $this->validate($request, [
-          'title' => 'required|min:5',
-          'body' => 'required',
-      ]);
-  
-      return view('test');
+    public function index()
+    {
+        return view('main-qaz');
     }
 
+    public function create_st()
+    {
+        return view('create-qaz');
+    }
+
+    public function create(Request $request)
+    {  
+        $wsx = $request->file('foto');
+        $path = Storage::disk('public')->put('uploads', $wsx);
+
+        $qaz = new Product;
+        $qaz->name = $request->input('name');
+        $qaz->file = $path;
+        $qaz->old_price = $request->input('old_price');
+        $qaz->price = $request->input('price');
+        $qaz->sale = $request->input('sale');
+        $qaz->address = $request->input('address');
+        $qaz->tel = $request->input('tel');
+        $qaz->desc = $request->input('desc');
 
 
-
-  public function insertr(Request $request)
-  {
-      $path = $request->file('image')->store('uploads', 'public');
-      $path2 = $request->input('name');
-      $path3 = $request->input('price');
-
-    $flight = new Product;
-    $flight->name = $path2;
-    $flight->price = $path3;
-    $flight->file = $path;
-    $flight->save();
-    return view('insertr', compact('path', 'path2', 'path3'));
-  }
-
-
-  
-  public function upload()
-  {
-      return view('insertr');
-  }
+        $qaz->save();
+        $path4 = 'Объявление созданно!';
+       
+        return view('create-qaz', compact('path4');
+    }
 
 }
+

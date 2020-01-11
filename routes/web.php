@@ -12,6 +12,35 @@
 */
 
 
+
+
+Route::get('/', 'PostsController@index');
+
+// 1) ВСТАВКА ТОВАРОВ 
+Route::get('/create', 'ProductController@create_st');
+Route::post('/create', 'ProductController@create');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ТЕСТ 
 Route::get('test', 'ProductController@test');
 Route::post('testw', 'ProductController@testw');
@@ -47,19 +76,9 @@ Route::group(['middleware' => 'qwer:admin'], function() {
 
 
 // Главная ################################
-Route::get('/', 'PostsController@index');
-
-
-// Вставка товаров
-Route::get('upload', 'ProductController@upload');
-Route::post('insertr', 'ProductController@insertr');
 
 
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::post('insert', 'PostsController@insert');
 
 
