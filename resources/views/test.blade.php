@@ -1,37 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="e-commerce site well design with responsive view." />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 </head>
 <body>
-    <form action="{{ url('testw') }}" method="post" enctype="multipart/form-data">
-{{ csrf_field() }}
-            <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-            <input type="text" name="title" placeholder="название">
-            <input type="text" name="price" placeholder="цена">
+
+    {{-- ФОРМА --}}
+    <form action="{{ url('send-message') }}" method="post" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="text" name="message" placeholder="название">
+            {{-- <input type="text" name="price" placeholder="цена"> --}}
+            <select name="mode" id="">
+                <option value="1">qaz</option>
+                <option value="2">wsx</option>
+            </select>
             <button class="btn btn-default" type="submit"></button>
     </form>
 
-
-    {{-- Валидация введённых в input данных --}}
-    @if (count($errors) > 0)
-      @foreach ($errors->all() as $error)
-        {{ $error }}
-      @endforeach
-    @endif
-    
-    @isset ($value)
-{{$value}}
+{{-- ДАННЫЕ --}}
+@isset ($product)
+    {{ $product }}
 @endisset
+ 
+{{-- <?php var_dump($product ?? '');?> --}}
 
-
+{{-- КАРТИНККА --}}
 @isset ($path)
-<img src="{{ asset('/storage/'.$path) }}">
+    <img src="{{ asset('/storage/'.$path) }}">
 @endisset
-@isset ($path3)
-{{$path3}}
-@endisset
+
+{{ $qaz ?? 'sd'}}{{ $qaz1 ?? 'sd'}}{{ $qaz2 ?? 'sd'}}
 
 </body>
 </html>
+

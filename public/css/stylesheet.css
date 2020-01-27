@@ -1303,9 +1303,7 @@ ul.main-navigation > li.menu-last ul ul {
 
 /* CSS for column start */ 
 
-.container .column-left, .container .column-right {
-	width: 20%;
-}
+
 .col-2 #content {
 	width: 80%;
 }

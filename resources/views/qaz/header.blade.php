@@ -12,8 +12,11 @@
 <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
 <link href="{{ URL::asset('javascript/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
 
+<!-- Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 <link href="{{ URL::asset('css/stylesheet.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('css/responsive.css') }}" rel="stylesheet">
@@ -26,9 +29,10 @@
 <script src="{{ URL::asset('javascript/common.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('javascript/global.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('javascript/owl-carousel/owl.carousel.min.js') }}" type="text/javascript"></script>
+
 </head>
 <body>
-<div class="preloader loader" style="display: block;"> <img src="image/loader.gif"  alt="#"/></div>
+<div class="preloader loader" style="display: block;"> <img src="{{ URL::asset('image/loader.gif') }}"  alt="#"/></div>
 <header>
     <div class="header-top">
         <div class="container">
@@ -42,9 +46,17 @@
                             <ul class="list-inline">
                                 <li class="dropdown"><a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span>Аккаунт</span> <span class="caret"></span></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a href="create">Объявления</a></li>
-                                        <li><a href="#">Регистрация</a></li>
-                                        <li><a href="#">Вход</a></li>
+                                        <li><a href="{{ route('products.index') }}">Объявления</a></li>
+                                        <li><a href="{{ route('login') }}">Вход</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Выход</a></li>
+ 
+                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                         @csrf
+                                     </form>
+
+
                                     </ul>
                                 </li>
                             </ul>
@@ -59,7 +71,7 @@
             <div class="col-sm-4 col-xs-6 header-left">
                 <div class="shipping">
                     
-                    <a href="#"><img src="image/images.jpg" alt="E-Commerce" style="width: 200px;" /></a>
+                    <a href="#"><img src="{{ URL::asset('image/images.jpg') }}" alt="E-Commerce" style="width: 200px;" /></a>
                     
                 </div>
                 
@@ -67,16 +79,20 @@
             <div class="col-sm-4 col-xs-6 header-middle">
                 <div class="header-middle-top">
                     
-                    <div id="logo"> <a href="index.html"><img src="image/logo.png" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a> </div>
+                    <div id="logo"> <a href="{{route('index')}}"><img src="{{ URL::asset('image/logo.png') }}" title="E-Commerce" alt="E-Commerce" class="img-responsive" /></a> </div>
                 </div>
             </div>
             <div class="col-sm-4 col-xs-6 header-right">
                 
                 <div id="search" class="input-group">
-                    <input type="text" name="search" value="" placeholder="Search" class="form-control input-lg" />
+                <form action="{{route('search')}}" method="post">
+                    @csrf
+                    <input type="text" name="search" value="" placeholder="Поиск услуги" class="form-control input-lg" />
                     <span class="input-group-btn">
-                    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-                    </span> </div>
+                    <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+                    </span> 
+                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -88,14 +104,12 @@
         </div>
         <div class="navbar-collapse">
             <ul class="main-navigation">
-                <li><a href="#"   class="parent"  >Главная</a> </li>
-                <li><a href="#"   class="parent"  >Красота</a> </li>
-                <li><a href="#"   class="parent"  >Здоровье</a> </li>
-                <li><a href="#"   class="parent"  >Развлечение</a> </li>
-                <li><a href="#"   class="parent"  >Кафе и рестораны</a> </li>
-                <li><a href="#"   class="parent"  >Домашние питомцы</a> </li>
-                <li><a href="#"   class="parent"  >Статьи</a></li>
-                <li><a href="#"   class="parent"  >Контакты</a> </li>
+                <li><a href="{{ route('index') }}"    class="parent"  >Главная</a> </li>
+                <li><a href="{{ route('take.category', ['fashion']) }}"   class="parent"  >Красота</a> </li>
+                <li><a href="{{ route('take.category', ['helth']) }}"   class="parent"  >Здоровье</a> </li>
+                <li><a href="{{ route('take.category', ['fun']) }}"   class="parent"  >Развлечение</a> </li>
+                <li><a href="{{ route('take.category', ['cultur']) }}"   class="parent"  >Культура</a> </li>
+                <li><a href="{{ route('contacts') }}"   class="parent"  >Контакты</a> </li>
                 
             </ul>
         </div>

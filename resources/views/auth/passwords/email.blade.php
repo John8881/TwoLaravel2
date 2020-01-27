@@ -1,47 +1,50 @@
-@extends('layouts.app')
 
-@section('content')
+
+
+
+
+@include('qaz.header')
+
+<!-- Основной контейнер -->
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+     <!-- Основная строка -->
+  <div class="row">
+    @include('qaz.sitebar2')
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+    <!-- Правая часть -->
+    <div class="col-sm-9" id="content">
+        <h1>Сброс пароля</h1>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+        <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+            <fieldset id="account">
+                <legend>Введите ваш e-mail:</legend>
+                
+                <div class="form-group required">
+                    <label for="input-email" class="col-sm-2 control-label">E-Mail</label>
+                    <div class="col-sm-10">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    </div>
                 </div>
-            </div>
-        </div>
+            </fieldset>
+            
+            <button type="submit" class="btn btn-primary">
+                {{ __('Сброс пароля') }}
+            </button>
+
+            
+        </form>
+        
     </div>
+  </div>
 </div>
-@endsection
+
+  @include('qaz.footer')

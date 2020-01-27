@@ -174,7 +174,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        // App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\MySiteClassServiceProvider::class,
+        App\Providers\LarademoServiceProvider::class,
+        
 
     ],
 
@@ -228,8 +232,8 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-
+        'Larademo'=> App\Facades\LarademoFacade::class,
+    
     ],
 
 ];

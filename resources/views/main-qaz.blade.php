@@ -23,64 +23,32 @@
                 <div id="tabs" class="customtab-wrapper">
                     <ul class='customtab-inner'>
                         <li class='tab'><a href="#tab-latest">Новые</a></li>
-                        <li class='tab'><a href="#tab-special">Выгодные</a></li>
-                        <li class='tab'><a href="#tab-bestseller">Бестселлеры</a></li>
+                        <li class='tab'><a href="#tab-special">Дешевые</a></li>
+                        <li class='tab'><a href="#tab-bestseller">Больше скидка</a></li>
                     </ul>
                 </div>
                 <div id="tab-latest" class="tab-content">
                     <div class="box">
                         <div id="latest-slidertab" class="row owl-carousel product-slider">
 
+    
+                            @isset($prod)
+                            @foreach ($prod as $prods)
+                                
                             <div class="item">
                                 <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                    <div class="image product-imageblock"> <a href="{{ route('products.show', ['product' => $prods->id]) }}"><img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
                                     <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
+                                        <h4 class="product-name">{{$prods->name}}</h4>
+                                        <p class="price product-price">&#8381 {{$prods->old_price}}  <span class="price-old">{{$prods->price}}</span></p>
+                                        <div class="rating">Sale: {{$prods->sale}}%</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endisset
+                            
+                            
 
                         </div>
                     </div>
@@ -92,46 +60,7 @@
                     <div class="box">
                         <div id="special-slidertab" class="row owl-carousel product-slider">
                             
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
@@ -153,6 +82,7 @@
                     <div class="box">
                         <div id="bestseller-slidertab" class="row owl-carousel product-slider">
 
+                            
                             <div class="item">
                                 <div class="product-thumb transition">
                                     <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
@@ -163,46 +93,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                    <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
-                                    </div>
-                                </div>
-                            </div>
+
 
                         </div>
                     </div>
@@ -217,9 +108,10 @@
                 </div>
 
 
-                <h3 class="productblock-title">Для Вас</h3>
+                <h3 class="productblock-title">Вы просматривали</h3>
                 <div class="box">
                     <div id="feature-slider" class="row owl-carousel product-slider">
+
 
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
@@ -231,46 +123,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item product-slider-item">
-                            <div class="product-thumb transition">
-                                <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                <div class="caption product-detail">
-                                    <h4 class="product-name">iPod Classic</h4>
-                                    <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                    <div class="rating">Sale: 50%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item product-slider-item">
-                            <div class="product-thumb transition">
-                                <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                <div class="caption product-detail">
-                                    <h4 class="product-name">iPod Classic</h4>
-                                    <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                    <div class="rating">Sale: 50%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item product-slider-item">
-                            <div class="product-thumb transition">
-                                <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                <div class="caption product-detail">
-                                    <h4 class="product-name">iPod Classic</h4>
-                                    <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                    <div class="rating">Sale: 50%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item product-slider-item">
-                            <div class="product-thumb transition">
-                                <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
-                                <div class="caption product-detail">
-                                    <h4 class="product-name">iPod Classic</h4>
-                                    <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                    <div class="rating">Sale: 50%</div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </div>
                 </div>

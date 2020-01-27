@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-
+use App\Services\MessageService\SendMessageInterface;
+use App\Services\MessageService\SendMessageEmail;
+use App\Services\MessageService\SendMessageSMS;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(SendMessageInterface::class, SendMessageSMS::class);
     }
 
     /**
