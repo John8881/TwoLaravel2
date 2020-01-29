@@ -2,7 +2,7 @@
     <div class="container">
         <div class="footer-top-cms">
             <div class="footer-logo"> <a href="#"><img alt="index.html" src="{{ URL::asset('image/logo-footer.png') }}" style="width: 140px;"></a> 
-            <br><a href="https://vk.com/woskresk">Разработка сайта</a>
+            <br><a href="https://github.com/woskresk">Разработка сайта</a>
             </div>
             <div class="footer-desc"> <span>Доска скидок Колпино — это самые горячие скидки от Ваших любимых магазинов, расположенных в Колпино, теперь не надо искать скидки, они идут к Вам сами!</span> </div>
             <div class="footer-social">

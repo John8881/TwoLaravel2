@@ -3,7 +3,7 @@ import About from './components/About';
 
 export default {
 
-    mode: 'history'
+    mode: 'history',
     
     routes: [
 
@@ -17,9 +17,8 @@ export default {
         {
 
             path: '/about',
-
             component: About
-        },
+        }
 
     ]
 };

@@ -1,7 +1,9 @@
 <template>
-   <p>Home</p>
+    <p>Home Page </p>
 </template>
-
 <script>
-    export default {}
+
+    export default {
+        name : 'Home'
+    }
 </script>
