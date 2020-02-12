@@ -30,11 +30,11 @@
                     <div class="form-group required">
                         <label for="input-firstname" class="col-sm-3 control-label">Категория товара</label>
                         <div class="col-sm-9">
-                            <select type="text" class="form-control" id="input-firstname" placeholder="Красота" value="{{ $item->category ?? 'Noname' }}" name="cat">
-                                <option value="1">красота</option>
-                                <option value="2">Мода</option>
-                                <option value="3">C</option>
-                                <option value="4">D</option>
+                            <select type="text" class="form-control" id="input-firstname" name="cat">
+                                <option value="fashion">Красота</option>
+                                <option value="fun" >Развлечения</option>
+                                <option value="helth">Здоровье</option>
+                                <option value="cultur">Культура</option>
                             </select>
                         </div>
                     </div>

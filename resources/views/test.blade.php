@@ -14,30 +14,66 @@
 <body>
 
     {{-- ФОРМА --}}
-    <form action="{{ url('send-message') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('/tes') }}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
-            <input type="text" name="message" placeholder="название">
+            <input type="text" name="search" placeholder="название">
+            <input type="text" name="email" placeholder="название">
+            <input type="text" name="password" placeholder="название">
+            {{-- <input type="file" name="mes" placeholder="название"> --}}
             {{-- <input type="text" name="price" placeholder="цена"> --}}
-            <select name="mode" id="">
+            {{-- <select name="mode" id="">
                 <option value="1">qaz</option>
                 <option value="2">wsx</option>
-            </select>
+            </select> --}}
             <button class="btn btn-default" type="submit"></button>
     </form>
 
 {{-- ДАННЫЕ --}}
-@isset ($product)
-    {{ $product }}
+
+
+@isset ($clients)
+{{ $clients }}
 @endisset
- 
-{{-- <?php var_dump($product ?? '');?> --}}
+@isset ($zd1)
+{{ $zd1 }}
+@endisset
+@isset ($zd2)
+{{ $zd2 }}
+@endisset
+@isset ($zd3)
+{{ $zd3 }}
+@endisset
+@isset ($wsx)
+{{ $wsx[0] }}
+{{ $wsx[1] }}
+{{ $wsx[2] }}
+{{ $wsx[3] }}
+{{ $wsx[4] }}
+{{ $wsx[5] }}
+{{ $wsx[6] }}
+@endisset
+
+                        {{-- @isset ($clients)
+                            @foreach ($clients as $client)
+                                
+                            <div class="item">
+                                <div class="product-thumb transition"><div class="caption product-detail">
+                                        <h4 class="product-name">{{$client->name}}</h4>
+                                        <p class="price product-price">&#8381 {{$client->price}}  <span class="price-old">{{$client->old_price}}</span></p>
+                                        <div class="rating">Sale: {{$client->sale}}%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endisset              --}}
+
 
 {{-- КАРТИНККА --}}
-@isset ($path)
+@isset ($path) 
     <img src="{{ asset('/storage/'.$path) }}">
 @endisset
 
-{{ $qaz ?? 'sd'}}{{ $qaz1 ?? 'sd'}}{{ $qaz2 ?? 'sd'}}
+{{-- {{ $qaz ?? 'sd'}}{{ $qaz1 ?? 'sd'}}{{ $qaz2 ?? 'sd'}} --}}
 
 </body>
 </html>

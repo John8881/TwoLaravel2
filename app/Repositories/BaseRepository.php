@@ -22,6 +22,8 @@ abstract class BaseRepository
            ->paginate($paginate);
    }
 
+   
+
    public function create($input)
    {
        $model = $this->model;
@@ -30,6 +32,10 @@ abstract class BaseRepository
 
        return $model;
    }
+
+
+
+
 
    public function find($id)
    {

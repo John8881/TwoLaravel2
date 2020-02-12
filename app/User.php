@@ -88,8 +88,16 @@ class User extends Authenticatable
         return $user->name;
     }
 
-
-
+    public function getWithNewOrders($input)
+    {
+    $this->name = $input['message'];
+    $this->email = $input['email'];
+    $this->password = $input['password'];
+    $this->save();
+    $rfv = 'dfjffj';
+ //    orderBy('created_at', 'desc')->take(5)->get();
+         return $rfv;
+ }
     
 
 }
