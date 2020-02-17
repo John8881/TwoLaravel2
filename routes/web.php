@@ -20,7 +20,6 @@ Route::get('/test', 'TestController@test')->name('test');
 Route::get('/testos', 'TestController@testos')->name('testos');
 
 
-
 // Авторизация
 // login               Войти
 // register            Зарегистрироватся
@@ -28,11 +27,9 @@ Route::get('/testos', 'TestController@testos')->name('testos');
 // password/reset      Сбросить пароль  
 Auth::routes();
 
-
 // ГЛАВНАЯ
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index');
-
 
 // CRUD РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА 
 //  Метод        Адрес URL                 Метод    Имя роута         Функциональность
@@ -56,7 +53,6 @@ Route::get('/products/{product}', 'ProductController@show')->name('products.show
 Route::get('/category/{name}', 'HomeController@categoryAll')->name('take.category');
 Route::post('/category/{name}', 'HomeController@categoryPut')->name('catos');
 Route::post('/search', 'HomeController@search')->name('search');
-
 
 Route::get('/contacts', 'ReviewController@index');
 Route::post('/contacts', 'ReviewController@contacts')->name('contacts');
