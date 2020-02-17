@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
-// use App\Facades\Larademo\Larademo;
+use App\Http\Requests\StoreBlogPost;
 use Illuminate\Http\Request;
 use App\Product;
 use Illuminate\Support\Facades\Cache;
@@ -21,38 +21,14 @@ class ProductController extends Controller
      */ 
     // $this->middleware('log')->only('index');
     // $this->middleware('subscribed')->except('store');
-    public function __construct()
+    protected $client;
+
+    public function __construct(Product $product)
     {
-      $this->middleware('auth')->except('show', 'testos', 'testos1', 'tes');
-      
+      $this->middleware('auth')->except('show'); // установить посредника(аутентификация) для всех методов этого контроллера кроме show
+      $this->client = $product; // Установить переменной client экземпляр класса product
     }
-    public function testos()
-    {
-        $product = Session::get('cart');
-        // $product = $productService->all();
-        $qaz = Product::qwerrt();
-        $product = array_unique($product);
-        // $qaz = $product[0];
-        $qaz1 = $product[1];
-        $qaz2 = $product[2];
-        
-        return view('test', compact('qaz', 'qaz1', 'qaz2'));
-    }
-    // TODO 
-    public function testos1()
-    {   if(Session::has('cart')){
-            $qaz = Session::get('cart');
-        }
-        $wsx = array_unique($qaz);
-        $qwerty = count($wsx);
-        if ($qwerty>2)
-        {
-            $product = 'yes';
-        }else{
-            $product = 'no';
-        }
-        return view('test', compact('product'));
-    }
+   
 
     /**
      * 1 шаг: Просмотр товаров конкретным пользователем.
@@ -83,27 +59,12 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBlogPost $request)
     {
-        $wsx = $request->file('foto');
-        // $wsx = $request->file('foto')->store('uploads', 'public');
-        $path = Storage::disk('public')->put('uploads', $wsx);
-        
-        $qaz = new Product;
-        $qaz->name = $request->input('name');
-        $qaz->category = $request->cat; //это передача поля select с именем= "name" из blade
-        
-        $qaz->user_id = Auth::user()->id;
-        $qaz->file = $path;
-        $qaz->old_price = $request->input('old_price');
-        $qaz->price = $request->input('price');
-        $qaz->sale = $request->input('sale');
-        $qaz->address = $request->input('address');
-        $qaz->tel = $request->input('tel');
-        $qaz->desc = $request->input('desc');
-        
-        $qaz->save();
-        // Product::where('created_at','<', Carbon::now()->addDays(-30))->delete();
+        // $validated = $request->validated();
+        $input = $request->all();
+        $user_id = Auth::user()->id;
+        $this->client->saveInStorage($input, $user_id);
         $path4 = 'Объявление добавленно!';
         return view('create-qaz', compact('path4'));
     }
@@ -117,16 +78,18 @@ class ProductController extends Controller
     public function show($id)
     {
         $this->supportShow($id);
-
         // Счётчик остатка дней до конца акции
         $ydh = Carbon::now()->addDays(-30);
-        $flb = Product::find($id)->value('created_at');
-        $time = $ydh->diffInDays($flb, false);
-        // 2
+        $flb = Product::find($id);
+        $wsx = $flb->created_at;
+        $time = $ydh->diffInDays($wsx, false);
         $item = Product::find($id);
-        
-        return view('product-qaz', compact('item', 'time'));
+        $prod = Product::orderBy('created_at', 'desc')->take(4)->get();
+        // return $time;
+
+        return view('product-qaz', compact('item', 'time', 'prod'));
     }
+
     public function supportShow($id)
         {
             if (Session::has('cart'))
@@ -147,11 +110,9 @@ class ProductController extends Controller
     {
         // Счётчик остатка дней до конца акции
         $ydh = Carbon::now()->addDays(-30);
-        $flb = Product::find(20)->value('created_at');
+        $flb = Product::find($id)->value('created_at');
         $time = $ydh->diffInDays($flb, false);
-        // 2
         $item = Product::find($id);
-        
         return view('change-qaz', compact('item', 'time'));
     }
 
@@ -164,19 +125,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $qaz = Product::find($id);
-        $qaz->name = $request->input('name');
-        $qaz->old_price = $request->input('old_price');
-        $qaz->price = $request->input('price');
-        $qaz->sale = $request->input('sale');
-        $qaz->address = $request->input('address');
-        $qaz->tel = $request->input('tel');
-        $qaz->whck = Auth::user()->id;
-        $qaz->desc = $request->input('desc');
-        $qaz->category = $request->cat; //это передача поля select с именем= "name" из blade
-        
-        $qaz->save();
-        return view('moio-qaz');
+        $input = $request->all();
+        $this->client->changeInStorage($input, $id);
+        return redirect('/products');
     }
 
     /**

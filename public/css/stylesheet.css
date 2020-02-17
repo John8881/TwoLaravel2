@@ -553,8 +553,7 @@ header {
 	width: 100%;
 	padding: 13px 0;
 }
-#menu .btn-navbar:hover, #menu .btn-navbar:focus, #menu .btn-navbar:active, #menu .btn-navbar.disabled, #menu .btn-navbar[disabled] {
-}
+
 @media (min-width: 768px) {
 #menu .dropdown:hover .dropdown-menu {
 	display: block;
@@ -856,8 +855,7 @@ footer ul li {
 	min-height: 0;
 }
 }
-.product-thumb .rating {
-}
+
 .rating .fa-stack {
 	font-size: 8px;
 	vertical-align: 1px;
@@ -1303,7 +1301,9 @@ ul.main-navigation > li.menu-last ul ul {
 
 /* CSS for column start */ 
 
-
+#column-left {
+	width: 20%;
+}
 .col-2 #content {
 	width: 80%;
 }
@@ -2150,7 +2150,6 @@ span.review-count, span.review-edit {
 }
 .load-more-wrapper {
 	display: inline-block;
-text-align;
 	text-align: center;
 	width: 100%;
 }
@@ -2378,11 +2377,7 @@ i.circle {
 	font-weight: 600;
 	line-height: 24px;
 }
-{
- line-height: 24px;
-} {
- line-height: 24px;
-}
+
 .work li {
 	list-style: outside none none;
 	margin-bottom: 47px;

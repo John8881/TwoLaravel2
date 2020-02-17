@@ -71,7 +71,7 @@
             <div class="col-sm-4 col-xs-6 header-left">
                 <div class="shipping">
                     
-                    <a href="#"><img src="{{ URL::asset('image/images.jpg') }}" alt="E-Commerce" style="width: 200px;" /></a>
+                    <a href="{{route('index')}}"><img src="{{ URL::asset('image/images.jpg') }}" alt="E-Commerce" style="width: 200px;" /></a>
                     
                 </div>
                 

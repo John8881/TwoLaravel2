@@ -16,10 +16,20 @@ abstract class BaseService
    {
        return $this->repo->paginated(config('paginate'));
    }
+
+
+
+
    public function create(array $input)
    {
        return $this->repo->create($input);
    }
+
+
+   
+
+
+
    public function find($id)
    {
        return $this->repo->find($id);

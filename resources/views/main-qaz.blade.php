@@ -40,7 +40,7 @@
                                     <div class="image product-imageblock"> <a href="{{ route('products.show', ['product' => $prods->id]) }}"><img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
                                     <div class="caption product-detail">
                                         <h4 class="product-name">{{$prods->name}}</h4>
-                                        <p class="price product-price">&#8381 {{$prods->old_price}}  <span class="price-old">{{$prods->price}}</span></p>
+                                        <p class="price product-price">&#8381 {{$prods->price}}  <span class="price-old">{{$prods->old_price}}</span></p>
                                         <div class="rating">Sale: {{$prods->sale}}%</div>
                                     </div>
                                 </div>
@@ -61,16 +61,21 @@
                         <div id="special-slidertab" class="row owl-carousel product-slider">
                             
                             
+                            @isset($qrod)
+                            @foreach ($qrod as $qrods)
+                                
                             <div class="item">
                                 <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                    <div class="image product-imageblock"> <a href="{{ route('products.show', ['product' => $qrods->id]) }}"><img src="{{ asset('/storage/' . $qrods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
                                     <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
+                                        <h4 class="product-name">{{$qrods->name}}</h4>
+                                        <p class="price product-price">&#8381 {{$qrods->price}}  <span class="price-old">{{$qrods->old_price}}</span></p>
+                                        <div class="rating">Sale: {{$qrods->sale}}%</div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+                            @endisset
 
 
                         </div>
@@ -83,16 +88,21 @@
                         <div id="bestseller-slidertab" class="row owl-carousel product-slider">
 
                             
+                            @isset($arod)
+                            @foreach ($arod as $arods)
+                                
                             <div class="item">
                                 <div class="product-thumb transition">
-                                    <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                    <div class="image product-imageblock"> <a href="{{ route('products.show', ['product' => $arods->id]) }}"><img src="{{ asset('/storage/' . $arods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
                                     <div class="caption product-detail">
-                                        <h4 class="product-name">iPod Classic</h4>
-                                        <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                        <div class="rating">Sale: 50%</div>
+                                        <h4 class="product-name">{{$arods->name}}</h4>
+                                        <p class="price product-price">&#8381 {{$arods->price}}  <span class="price-old">{{$arods->old_price}}</span></p>
+                                        <div class="rating">Sale: {{$arods->sale}}%</div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
+                            @endisset
 
 
                         </div>
@@ -112,24 +122,65 @@
                 <div class="box">
                     <div id="feature-slider" class="row owl-carousel product-slider">
 
-
+                        @isset ($zd)
                         <div class="item product-slider-item">
                             <div class="product-thumb transition">
-                                <div class="image product-imageblock"> <a href="product.html"><img src="image/product/product1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                <div class="image product-imageblock">  <a href="{{ route('products.show', ['product' => $zd->id]) }}"><img src="{{ asset('/storage/' . $zd->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
                                 <div class="caption product-detail">
-                                    <h4 class="product-name">iPod Classic</h4>
-                                    <p class="price product-price">&#8381 122.00  <span class="price-old">$272.00</span></p>
-                                    <div class="rating">Sale: 50%</div>
+                                    <h4 class="product-name">{{ $zd->name }}</h4>
+                                    <p class="price product-price">&#8381 {{ $zd->price }} <span class="price-old"> {{ $zd->old_price }}</span></p>
+                                    <div class="rating">Sale: {{ $zd->sale }}%</div>
                                 </div>
                             </div>
                         </div>
+                        @endisset
+
+                        @isset ($zd1)
+                        <div class="item product-slider-item">
+                            <div class="product-thumb transition">
+                                <div class="image product-imageblock">  <a href="{{ route('products.show', ['product' => $zd1->id]) }}"><img src="{{ asset('/storage/' . $zd1->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                <div class="caption product-detail">
+                                    <h4 class="product-name">{{ $zd1->name }}</h4>
+                                    <p class="price product-price">&#8381 {{ $zd1->price }} <span class="price-old"> {{ $zd1->old_price }}</span></p>
+                                    <div class="rating">Sale: {{ $zd1->sale }}%</div>
+                                </div>
+                            </div>
+                        </div>
+                        @endisset
+
+                        @isset ($zd2)
+                        <div class="item product-slider-item">
+                            <div class="product-thumb transition">
+                                <div class="image product-imageblock">  <a href="{{ route('products.show', ['product' => $zd2->id]) }}"><img src="{{ asset('/storage/' . $zd2->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                <div class="caption product-detail">
+                                    <h4 class="product-name">{{ $zd2->name }}</h4>
+                                    <p class="price product-price">&#8381 {{ $zd2->price }} <span class="price-old"> {{ $zd2->old_price }}</span></p>
+                                    <div class="rating">Sale: {{ $zd2->sale }}%</div>
+                                </div>
+                            </div>
+                        </div>
+                        @endisset
+
+                        @isset ($zd3)
+                        <div class="item product-slider-item">
+                            <div class="product-thumb transition">
+                                <div class="image product-imageblock">  <a href="{{ route('products.show', ['product' => $zd3->id]) }}"><img src="{{ asset('/storage/' . $zd3->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                <div class="caption product-detail">
+                                    <h4 class="product-name">{{ $zd3->name }}</h4>
+                                    <p class="price product-price">&#8381 {{ $zd3->price }} <span class="price-old"> {{ $zd3->old_price }}</span></p>
+                                    <div class="rating">Sale: {{ $zd3->sale }}%</div>
+                                </div>
+                            </div>
+                        </div>
+                        @endisset
+
                         
 
                     </div>
                 </div>
 
-
-
+               
+               
                 <div class="blog">
                     <div class="blog-heading">
                         <h3>Рекламные баннеры</h3>

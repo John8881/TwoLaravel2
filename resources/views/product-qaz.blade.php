@@ -56,7 +56,7 @@
                                             
                                         <div class="item">
                                             <div class="product-thumb transition">
-                                                <div class="image product-imageblock"> <a href="products/{{$prods->id}}"><img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                                <div class="image product-imageblock"> <a href="{{ route('products.show', ['product' => $prods->id]) }}"><img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
                                                 <div class="caption product-detail">
                                                     <h4 class="product-name">{{$prods->name}}</h4>
                                                     <p class="price product-price">&#8381 {{$prods->old_price}}  <span class="price-old">{{$prods->price}}</span></p>
@@ -72,6 +72,36 @@
                             </div>
                             
                             
+
+
+
+
+
+        {{-- <div class="customtab">
+                            <h3 class="productblock-title">Вы просматривали</h3>
+                <div class="box">
+                    <div id="feature-slider" class="row owl-carousel product-slider">
+
+                        @isset($prod)
+                            @foreach ($prod as $prods)
+                        <div class="item product-slider-item">
+                            <div class="product-thumb transition">
+                                <div class="image product-imageblock">  <a href="{{ route('products.show', ['product' => $prods->id]) }}"><img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /> </a></div>
+                                <div class="caption product-detail">
+                                    <h4 class="product-name">{{ $prods->name }}</h4>
+                                    <p class="price product-price">&#8381 {{ $prods->price }} <span class="price-old"> {{ $prods->old_price }}</span></p>
+                                    <div class="rating">Sale: {{ $prods->sale }}%</div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                        @endisset
+
+                    </div>
+                </div>
+            </div> --}}
+
+
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                                 
                     <div class="item">
                         <div class="product-thumb transition">
-                            <div class="image product-imageblock"> <img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+                            <div class="image product-imageblock"> <a href="{{ route('products.show', ['product' => $prods->id]) }}"><img src="{{ asset('/storage/' . $prods->file) }}" alt="iPod Classic" title="iPod Classic" class="img-responsive" /></a>
                                 
                             </div>
                             <div class="caption product-detail">

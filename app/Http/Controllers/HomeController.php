@@ -7,85 +7,64 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Product;
 use Carbon\Carbon;
-use App\Services\UserService;
-use App\Services\MessageService\SendMessageInterface;
-use App\Services\MessageService\SendMessageEmail;
-use App\Services\MessageService\SendMessageSMS;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Arr;
 
 class HomeController extends Controller
 {
 
-    /**
-     * ПОЛУЧЕНИЕ ТОВАРОВ НА ГЛАВН СТР
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    // public function index()
-    // {   
-        
-    //     $prod = Product::take(5)->get();
-    //     return view('main-qaz', compact('prod'));
-    // }
-    public function index(UserService $userService)
-    {   
-        
-        $userService->handleUserLogin();
-        // return view('test', compact('prod'));
-        return view('test');
+    
+    protected $propper;
+
+    public function __construct(Product $product)
+    {
+
+      $this->propper = $product; // Установить переменной client экземпляр класса product
     }
 
-    public function sendMessage(Request $request, SendMessageInterface $sendMessageInterface)
+
+    public function index()
     {   
+        $rtg = $this->propper->choiseCustomer(); 
+        $zd = $rtg[0]; $zd1 = $rtg[1]; $zd2 = $rtg[2]; $zd3 = $rtg[3]; 
+       
+        $prod = Product::orderBy('created_at', 'desc')->take(5)->get();
+        $qrod = Product::orderBy('price', 'asc')->take(5)->get();
+        $arod = Product::orderBy('sale', 'desc')->take(5)->get();
         
-        $sendMessageInterface->SendMessage("Amitav", $request->input('message'));
-        if ($request->input('mode') == 1) {
-            app()->bind(SendMessageInterface::class, SendMessageSMS::class);
-        }else {
-            app()->bind(SendMessageInterface::class, SendMessageEmail::class);
-        }
-        return $request->all();
+        return view('main-qaz', compact('prod', 'qrod', 'arod', 'zd', 'zd1', 'zd2', 'zd3'));
     }
-    // 2DFHBFYN 
-    // public function sendMessage(Request $request)
-    // {   
-        
-        
-    //     if ($request->input('mode') == 1) {
-    //         app()->bind(SendMessageInterface::class, SendMessageSMS::class);
-    //     }else {
-    //         app()->bind(SendMessageInterface::class, SendMessageEmail::class);
-    //     }
-
-    //     $sendMessageInterface = app()->make(SendMessageInterface::class);
-    //     $sendMessageInterface->SendMessage("Amitav", $request->input('message'));
-    //     return $request->all();
-    // }
-
-
-
-
-
-
-
-
-
+  
+   
 
     // КАТЕГОРИИ
     public function categoryAll($name)
     {
-        $prod = Product::where('category', $name)->paginate(12);
-        return view('category-qaz', compact('prod', 'name'));
+        $prod = Product::where('category', $name)->orderBy('created_at', 'desc')->paginate(12);
+        $count = $prod->lastPage();
+        return view('category-qaz', compact('prod', 'name', 'count'));
     }
-    // public function categoryPut(Request $request)
-    // {
-    //     $prod = 'ddfd';
-    //     return view('test', compact('prod'));
-    // }
-    // TODO : will make a new view  
+
+
+    public function categoryPut(Request $request, $name)
+    {
+        $wsx = $request->wjs;
+        $rtg = $this->propper->sortProduct($wsx, $name); 
+        $prod = $rtg[0]; $zd = $rtg[1]; $zd1 = $rtg[2]; $zd2 = $rtg[3]; $zd3 = $rtg[4]; $count = $rtg[5];
+        return view('category-qaz', compact('prod', 'name', 'zd', 'zd1', 'zd2', 'zd3', 'count'));
+    }
+
+
+    // Search response
     public function search(Request $request)
     {
         $search = $request->search;
-        $prod = Product::where('name', 'LIKE', '%$search%')->get();
-        return view('category-qaz', compact('prod'));
+        $prod = Product::where('name', 'LIKE', '%'.$search.'%')->get();
+        $prodd = 'Результатов не найдено';
+        if(!$prod->isEmpty()){return view('search-qaz', compact('prod'));
+        }else{return view('search-qaz', compact('prodd'));}
     }
+
+    
+    
 }
