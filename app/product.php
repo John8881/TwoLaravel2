@@ -129,4 +129,14 @@ class Product extends Model
     }
     return  array($zd, $zd1, $zd2, $zd3);
 }
+
+
+public function delWithFile()
+{
+
+
+    
+    Product::where('created_at','<', Carbon::now()->addDays(-30))->delete();
+
+}
 }

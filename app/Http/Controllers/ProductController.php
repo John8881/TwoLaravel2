@@ -50,6 +50,8 @@ class ProductController extends Controller
      */
     public function create()
     {
+        Product::where('created_at','<', Carbon::now()->addDays(-30))->delete();
+        $this->client->saveInStorage($input, $user_id);
         return view('create-qaz');
     }
 
