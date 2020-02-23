@@ -28,7 +28,7 @@ class TestController extends Controller
 
     public function index()
     {
-        return view('test');
+        return view('testi.test.test');
     }
 
 public function inde(Request $request)

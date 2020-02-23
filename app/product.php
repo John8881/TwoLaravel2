@@ -129,14 +129,15 @@ class Product extends Model
     }
     return  array($zd, $zd1, $zd2, $zd3);
 }
+    //  ДОБАВИТЬ НА САЙТ 
+    public function deleteById($id)
+    {
+        $flight = $this::find($id);
+        // Дабавить эти две строки
+        $qaz = $flight->file; 
+        Storage::disk('public')->delete($qaz);
 
+        $flight->delete();
+    }
 
-public function delWithFile()
-{
-
-
-    
-    Product::where('created_at','<', Carbon::now()->addDays(-30))->delete();
-
-}
 }

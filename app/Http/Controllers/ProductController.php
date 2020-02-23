@@ -50,8 +50,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        Product::where('created_at','<', Carbon::now()->addDays(-30))->delete();
-        $this->client->saveInStorage($input, $user_id);
+        
         return view('create-qaz');
     }
 
@@ -132,16 +131,12 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-    /**
-     * 5 шаг: Удаляет товар из базы по id 
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
+
+    // ДОБАВИТЬ НА ХОСТИНГ ФУНКЦИЮ УДАЛЕНИЯ ФАЙЛА ИЗ 
     public function destroy($id)
     {
-        $flight = Product::find($id);
-        $flight->delete();
+        $this->client->deleteById($id);
 
         return redirect()->route('products.index');
     }
