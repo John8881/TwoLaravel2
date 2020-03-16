@@ -31,7 +31,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index');
 
-// CRUD РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА 
+// CRUD РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА просто
 //  Метод        Адрес URL                 Метод    Имя роута         Функциональность
 //  GET	        /products	               index	products.index     Кабинет клиента
 //  GET	        /products/create	       create	products.create    Форма создания товара
