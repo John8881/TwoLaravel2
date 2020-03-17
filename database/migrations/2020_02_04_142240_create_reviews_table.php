@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateReviewsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations.новый вааорыжрвап
      *
      * @return void
      */
