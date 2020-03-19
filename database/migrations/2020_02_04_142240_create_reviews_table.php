@@ -20,6 +20,10 @@ class CreateReviewsTable extends Migration
             $table->string('text');
             $table->timestamps();
         });
+        
+        Schema::table('reviews', function (Blueprint $table) {
+            $table->string('ema');
+        });
     }
 
     /**
