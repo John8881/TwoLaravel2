@@ -13,7 +13,7 @@
 
 
 // ТЕСТ
-Route::get('/testi', 'TestController@index');
+
 Route::get('/testi', 'TestController@index');
 Route::post('/tes', 'TestController@inde');
 Route::get('/test', 'TestController@test')->name('test');
