@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
@@ -21,27 +20,28 @@ class TestController extends Controller
         $this->client = $user;
     }
 
-
-
+//AJAX 
+    public function ajax(Request $request) {
+        $input = $request->input('name');
+        $inputs = $request->input('email');
+        return response()->json(array('msg'=> $input, 'msgs'=> $inputs), 200);
+     }
     
-
-
-    public function index()
-    {
-        return view('testi.test.test');
+    public function index(){
+        return view('testi.test');
     }
 
-public function inde(Request $request)
-{
-    $search = $request->search;
-    $prod = Product::where('name', 'LIKE', '%'.$search.'%')->get();
-    // $prod = [];
-    // $prodd = 'Результатов не найдено';
-    // $contains = Arr::has($prod, 'name');
-    if($prod->isEmpty()){
-        return 'fff';
-    }else{
-        return 'wwww';
+
+    public function inde(Request $request){
+        $search = $request->search;
+        $prod = Product::where('name', 'LIKE', '%'.$search.'%')->get();
+        // $prod = [];
+        // $prodd = 'Результатов не найдено';
+        // $contains = Arr::has($prod, 'name');
+        if($prod->isEmpty()){
+            return 'fff';
+        }else{
+            return 'wwww';
         
     }
 }

@@ -60,6 +60,16 @@ Route::post('/contacts', 'ReviewController@contacts')->name('contacts');
 
 
 // 2) РОУТЫ ДЛЯ AJAX 
-Route::get('ajaxRequest', 'ProductController@ajaxRequest');
-Route::post('ajaxRequest', 'ProductController@ajaxRequestPost');// роут для пост запроса aj
 
+// Route::get('ajax', 'TestController@index');
+
+// Route::post('ajaxRequest', 'TestController@ajaxRequest');
+
+// Route::get('ajax',function() {
+//     return view('testi.test');
+//  });
+//  Route::post('/getmsg','TestController@ajax');
+
+Route::get('ajax', 'TestController@index');
+
+Route::post('ajaxRequest', 'TestController@ajax');
