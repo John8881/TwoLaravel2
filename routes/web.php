@@ -59,7 +59,6 @@ Route::post('/contacts', 'ReviewController@contacts')->name('contacts');
 
 
 
-// 2) РОУТЫ ДЛЯ AJAX 
 
 // Route::get('ajax', 'TestController@index');
 
