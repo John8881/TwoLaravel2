@@ -26,16 +26,35 @@ class HomeController extends Controller
     public function index()
     {   
          
+        if(Session::has('cart')){
+            $qaz = Session::get('cart');
+        }else{
+            $qaz = [];
+        }
+        $wsx = array_unique($qaz);
+        $qwerty = count($wsx);
+        if ($qwerty<4)
+        {
+            $prod = Product::orderBy('created_at', 'desc')->take(4)->get();
+            $zd = $prod->get(0);
+            $zd1 = $prod->get(1);
+            $zd2 = $prod->get(2);
+            $zd3 = $prod->get(3);
+        }else{
+            $edc = array_keys($wsx);
+            $zd = Product::find($wsx[$edc[0]]);
+            $zd1 = Product::find($wsx[$edc[1]]);
+            $zd2 = Product::find($wsx[$edc[2]]);
+            $zd3 = Product::find($wsx[$edc[3]]);
+        }
+        // return  array($zd, $zd1, $zd2, $zd3);
+        // $zd = $rtg[0]; $zd1 = $rtg[1]; $zd2 = $rtg[2]; $zd3 = $rtg[3]; 
+       
         $prod = Product::orderBy('created_at', 'desc')->take(5)->get();
         $qrod = Product::orderBy('price', 'asc')->take(5)->get();
         $arod = Product::orderBy('sale', 'desc')->take(5)->get();
-        $zd = $prod->get(0);
-            $zd1 = $arod->get(1);
-            $zd2 = $arod->get(2);
-            $zd3 = $arod->get(3);
         
         return view('main-qaz', compact('prod', 'qrod', 'arod', 'zd', 'zd1', 'zd2', 'zd3'));
-        
     }
   
    

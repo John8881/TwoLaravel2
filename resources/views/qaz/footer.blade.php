@@ -8,10 +8,10 @@
             <div class="footer-social">
                 <h5>Social</h5>
                 <ul>
-                    <li class="facebook"><a href="#"><i class="fa fa-vk"></i></a></li>
-                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li class="facebook"><a href="https://vk.com/lokolpino"><i class="fa fa-vk"></i></a></li>
+                <!--    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li class="gplus"><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    <li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>-->
                     
                 </ul>
             </div>

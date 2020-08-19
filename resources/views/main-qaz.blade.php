@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-md-12">
             <div id="main-banner" class="owl-carousel home-slider">
-                <div class="item"> <a href="#"><img src="image/banners/Main-Banner1.jpg" alt="main-banner1" class="img-responsive" /></a> </div>
-                <div class="item"> <a href="#"><img src="image/banners/Main-Banner2.jpg" alt="main-banner2" class="img-responsive" /></a> </div>
-                <div class="item"> <a href="#"><img src="image/banners/Main-Banner3.jpg" alt="main-banner3" class="img-responsive" /></a> </div>
+                <div class="item"> <a href="http://trkoka.ru/"><img src="image/banners/Main-Banner1.jpg" alt="main-banner1" class="img-responsive" /></a> </div>
+                <div class="item"> <a href="https://www.invitro.ru/l/testy-na-koronavirus-covid-19/?from=main_slider"><img src="image/banners/Main-Banner3.jpg" alt="main-banner3" class="img-responsive" /></a> </div>
+                <div class="item"> <a href="http://www.alicemake.ru/"><img src="image/banners/Main-Banner2.jpg" alt="main-banner2" class="img-responsive" /></a> </div>
             </div>
         </div>
     </div>
@@ -111,14 +111,14 @@
 
 
                 <div id="subbanner4" class="banner" >
-                    <div class="item"> <a href="#"><img src="image/banners/subbanner4.jpg" alt="Sub Banner4" class="img-responsive" /></a> </div>
+                    <div class="item"> <a href="http://trkoka.ru/"><img src="image/banners/subbanner4.jpg" alt="Sub Banner4" class="img-responsive" /></a> </div>
                 </div>
                 <div id="subbanner5" class="banner" >
-                    <div class="item"> <a href="#"><img src="image/banners/subbanner5.jpg" alt="Sub Banner5" class="img-responsive" /></a> </div>
+                    <div class="item"> <a href="http://volkovabeauty.com/"><img src="image/banners/subbanner5.jpg" alt="Sub Banner5" class="img-responsive" /></a> </div>
                 </div>
 
 
-                <h3 class="productblock-title">Вы просматривали</h3>
+                <h3 class="productblock-title">Рекомендованные</h3>
                 <div class="box">
                     <div id="feature-slider" class="row owl-carousel product-slider">
 
@@ -183,25 +183,25 @@
                
                 <div class="blog">
                     <div class="blog-heading">
-                        <h3>Рекламные баннеры</h3>
+                        <h3>Интерестное</h3>
                     </div>
                     <div class="blog-inner box">
                         <ul class="list-unstyled blog-wrapper" id="latest-blog">
                             <li class="item blog-slider-item">
                                 <div class="panel-default">
-                                    <div class="blog-image"> <a href="#" class="blog-imagelink"><img src="image/blog/blog_1.jpg" alt="#"></a> <span class="blog-hover"></span><span class="blog-readmore-outer"><a href="#" class="blog-readmore">read more</a></span> </div>
+                                    <div class="blog-image"> <a href="https://kolpino.ru/news/1/v-poselke-telmana-poyavilos-graffiti-v-blagodarnost-vracham/" class="blog-imagelink"><img src="image/blog/stat1.jpg" alt="#"></a> <span class="blog-hover"></span><span class="blog-readmore-outer"><a href="https://kolpino.ru/news/1/v-poselke-telmana-poyavilos-graffiti-v-blagodarnost-vracham/" class="blog-readmore">read more</a></span> </div>
                                     <div class="blog-content"> 
-                                        <a href="#" class="blog-name"><h2>Заглавие</h2></a>
-                                        <div class="blog-desc">Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing...</div>
+                                        <a href="https://kolpino.ru/news/1/v-poselke-telmana-poyavilos-graffiti-v-blagodarnost-vracham/" class="blog-name"><h2>Спасибо Врачам</h2></a>
+                                        <div class="blog-desc">В поселке Тельмана Тосненского района на стене одного из домов появилось граффити в благодарность врачам.</div>
                                     </div>
                                 </div> 
                             </li>
                             <li class="item blog-slider-item">
                                 <div class="panel-default">
-                                    <div class="blog-image"> <a href="#" class="blog-imagelink"><img src="image/blog/blog_1.jpg" alt="#"></a> <span class="blog-hover"></span><span class="blog-readmore-outer"><a href="#" class="blog-readmore">read more</a></span> </div>
+                                    <div class="blog-image"> <a href="https://kolpino.ru/news/1/sportivno-tramvaynoe-kolpino/" class="blog-imagelink"><img src="image/blog/stat.jpg" alt="#"></a> <span class="blog-hover"></span><span class="blog-readmore-outer"><a href="https://kolpino.ru/news/1/sportivno-tramvaynoe-kolpino/" class="blog-readmore">read more</a></span> </div>
                                     <div class="blog-content"> 
-                                        <a href="#" class="blog-name"><h2>Заглавие</h2></a>
-                                        <div class="blog-desc">Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.Lorem ipsum doLorem ipsum dolor sit amet, consectetur adipisicing...</div>
+                                        <a href="https://kolpino.ru/news/1/sportivno-tramvaynoe-kolpino/" class="blog-name"><h2>Трамвай в Колпино</h2></a>
+                                        <div class="blog-desc">В Колпино проведут две трамвайные линии и построят несколько спортивных центров. Эти планы фигурируют в проекте нового Генерального плана Петербурга.</div>
                                         </div>
                                 </div>
                             </li>
@@ -212,12 +212,12 @@
 
 
             <div id="brand_carouse" class="owl-carousel brand-logo">
-                <div class="item text-center"> <a href="#"><img src="image/brand/brand1.png" alt="Disney" class="img-responsive" /></a> </div>
-                <div class="item text-center"> <a href="#"><img src="image/brand/brand2.png" alt="Dell" class="img-responsive" /></a> </div>
-                <div class="item text-center"> <a href="#"><img src="image/brand/brand3.png" alt="Harley" class="img-responsive" /></a> </div>
-                <div class="item text-center"> <a href="#"><img src="image/brand/brand4.png" alt="Canon" class="img-responsive" /></a> </div>
-                <div class="item text-center"> <a href="#"><img src="image/brand/brand5.png" alt="Canon" class="img-responsive" /></a> </div>
-                <div class="item text-center"> <a href="#"><img src="image/brand/brand6.png" alt="Canon" class="img-responsive" /></a> </div>
+                <div class="item text-center"> <a href="https://vk.com/cdttkolpino"><img src="image/brand/brand1.png" alt="Disney" class="img-responsive" /></a> </div>
+                <div class="item text-center"> <a href="https://vk.com/workinkolpino"><img src="image/brand/brand2.png" alt="Dell" class="img-responsive" /></a> </div>
+                <div class="item text-center"> <a href="https://vk.com/avacakes"><img src="image/brand/brand3.png" alt="Harley" class="img-responsive" /></a> </div>
+                <div class="item text-center"> <a href="https://vk.com/kolpinorsbor"><img src="image/brand/brand4.png" alt="Canon" class="img-responsive" /></a> </div>
+                <div class="item text-center"> <a href="https://vk.com/dr.bracketklp"><img src="image/brand/brand5.png" alt="Canon" class="img-responsive" /></a> </div>
+                <div class="item text-center"> <a href="https://vk.com/olesya_cakes"><img src="image/brand/brand6.png" alt="Canon" class="img-responsive" /></a> </div>
                 </div>
         </div>
     </div>

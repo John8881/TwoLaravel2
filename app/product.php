@@ -48,6 +48,7 @@ class Product extends Model
         $path = Storage::disk('public')->put('uploads', $wsx);
         
         $this->name = $input['name'];
+        $this->href = $input['href'];
         $this->category = $input['cat'];
         $this->user_id = $user_id;
         $this->file = $path;
@@ -107,30 +108,30 @@ class Product extends Model
     public function choiseCustomer()
     {
 
-    if(Session::has('cart')){
-        $qaz = Session::get('cart');
-    }else{$qaz = [];}
-    $wsx = array_unique($qaz);
-    $qwerty = count($wsx);
-    if ($qwerty<4)
-    {
-        $prod = $this::orderBy('created_at', 'desc')->take(4)->get();
-        $zd = $prod->get(0);
-        $zd1 = $prod->get(1);
-        $zd2 = $prod->get(2);
-        $zd3 = $prod->get(3);
-    }else{
-        
-        $edc = array_keys($wsx);
-    $zd = $this::find($wsx[$edc[0]]);
-    $zd1 = $this::find($wsx[$edc[1]]);
-    $zd2 = $this::find($wsx[$edc[2]]);
-    $zd3 = $this::find($wsx[$edc[3]]);
+        if(Session::has('cart')){
+            $qaz = Session::get('cart');
+        }else{$qaz = [];}
+        $wsx = array_unique($qaz);
+        $qwerty = count($wsx);
+        if ($qwerty<4)
+        {
+            $prod = $this::orderBy('created_at', 'desc')->take(4)->get();
+            $zd = $prod->get(0);
+            $zd1 = $prod->get(1);
+            $zd2 = $prod->get(2);
+            $zd3 = $prod->get(3);
+        }else{
+            
+            $edc = array_keys($wsx);
+        $zd = $this::find($wsx[$edc[0]]);
+        $zd1 = $this::find($wsx[$edc[1]]);
+        $zd2 = $this::find($wsx[$edc[2]]);
+        $zd3 = $this::find($wsx[$edc[3]]);
+        }
+        return  array($zd, $zd1, $zd2, $zd3);
     }
-    return  array($zd, $zd1, $zd2, $zd3);
-}
-    //  ДОБАВИТЬ НА САЙТ 
-    public function deleteById($id)
+    
+	 public function deleteById($id)
     {
         $flight = $this::find($id);
         // Дабавить эти две строки
@@ -139,5 +140,4 @@ class Product extends Model
 
         $flight->delete();
     }
-
 }

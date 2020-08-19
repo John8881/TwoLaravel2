@@ -2,7 +2,6 @@
 
 
 
-
 @include('qaz.header')
 
 <!-- Основной контейнер -->
@@ -70,7 +69,7 @@
             
 
             <div class="buttons">
-                <div class="pull-right">Нажимая кнопку отправить, я соглашаюсь с <a class="agree" href="#"><b>политикой конфеденциальности </b></a>
+                <div class="pull-right">Нажимая кнопку отправить, я соглашаюсь с <a class="agree" href="politics.doc" download="politics.doc"><b>политикой конфеденциальности </b></a>
                     
                     <input type="submit" class="btn btn-primary" value="Отправить">
                 </div>

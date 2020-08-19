@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>E-Commerce</title>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<title>Доска объявлений Колпино</title>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="e-commerce site well design with responsive view." />
+<meta name="description" content="Доска коммерческих объявлений города Колпино" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+<meta property="og:title" content="Все скидки Колпино в одном месте!"/>
+<meta property="og:description" content="Доска объявлений Колпино это место, где хранятся самые выгодные, акционные предложения магазинов в Колпино."/>
+<meta property="og:image" content="http://kolpino-sale.ru/image/logo.png"/>
+<meta property="og:type" content="website"/> <!-- САЙТ -->
+<meta property="og:url" content= "http://kolpino-sale.ru/" />
+	
 <link href="{{ URL::asset('image/232.png') }}" rel="icon" />
 <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen" />
 <link href="{{ URL::asset('javascript/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
@@ -71,7 +77,7 @@
             <div class="col-sm-4 col-xs-6 header-left">
                 <div class="shipping">
                     
-                    <a href="{{route('index')}}"><img src="{{ URL::asset('image/images.jpg') }}" alt="E-Commerce" style="width: 200px;" /></a>
+                    <a href="http://kolpino24.ru/"><img src="{{ URL::asset('image/images.jpg') }}" alt="Колпино24" style="width: 200px;" /></a>
                     
                 </div>
                 

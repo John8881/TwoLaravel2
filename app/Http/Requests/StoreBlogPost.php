@@ -25,6 +25,7 @@ class StoreBlogPost extends FormRequest
     {
         return [
             'name' => 'required|max:255',
+            'href' => 'required|max:100|url',
             'foto' => 'required|image|dimensions:width=600,height=800',
             'old_price' => 'required',
             'price' => 'required',
@@ -39,9 +40,12 @@ class StoreBlogPost extends FormRequest
     {
         return [
             'name.required' => 'Поле название не заполнено!',
+            'href.required' => 'Поле название не заполнено!',
+            'href.max:100' => 'Поле название не заполнено!',
+            'href.url' => 'Поле должно быть url, пример: http://yandex.ru/ ',
             'foto.required' => 'Картинка не добавлена!',
             'foto.image' => 'Не корректный формат, обратитесь к администрации.',
-            'foto.dimensions' => 'Ширина должна быть 600px, а высота 800px',
+			'foto.dimensions' => 'Ширина должна быть 600px, а высота 800px',
             'old_price.required' => 'Поле старая цена не заполнено!',
             'price.required' => 'Поле цена не заполнено!',
             'sale.required' => 'Поле скидка не заполнено!',

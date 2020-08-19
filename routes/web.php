@@ -13,11 +13,12 @@
 
 
 // ТЕСТ
-
+Route::get('/testone', 'TestController@testOne');
 Route::get('/testi', 'TestController@index');
 Route::post('/tes', 'TestController@inde');
-Route::get('/test', 'TestController@test')->name('test');
+Route::get('/test', 'ProductController@indexw');
 Route::get('/testos', 'TestController@testos')->name('testos');
+
 
 
 // Авторизация
@@ -27,11 +28,13 @@ Route::get('/testos', 'TestController@testos')->name('testos');
 // password/reset      Сбросить пароль  
 Auth::routes();
 
+
 // ГЛАВНАЯ
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index');
 
-// CRUD РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА просто
+
+// CRUD РЕАЛИЗАЦИЯ КОНТРОЛЛЕРА 
 //  Метод        Адрес URL                 Метод    Имя роута         Функциональность
 //  GET	        /products	               index	products.index     Кабинет клиента
 //  GET	        /products/create	       create	products.create    Форма создания товара
@@ -54,21 +57,13 @@ Route::get('/category/{name}', 'HomeController@categoryAll')->name('take.categor
 Route::post('/category/{name}', 'HomeController@categoryPut')->name('catos');
 Route::post('/search', 'HomeController@search')->name('search');
 
+
 Route::get('/contacts', 'ReviewController@index');
 Route::post('/contacts', 'ReviewController@contacts')->name('contacts');
 
 
-// Eximine
 
-// Route::get('ajax', 'TestController@index');
+// 2) РОУТЫ ДЛЯ AJAX 
+Route::get('ajaxRequest', 'ProductController@ajaxRequest');
+Route::post('ajaxRequest', 'ProductController@ajaxRequestPost');// роут для пост запроса aj
 
-// Route::post('ajaxRequest', 'TestController@ajaxRequest');
-
-// Route::get('ajax',function() {
-//     return view('testi.test');
-//  });
-//  Route::post('/getmsg','TestController@ajax');
-
-Route::get('ajax', 'TestController@index');
-
-Route::post('ajaxRequest', 'TestController@ajax');

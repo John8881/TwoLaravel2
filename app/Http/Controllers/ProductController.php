@@ -30,6 +30,16 @@ class ProductController extends Controller
     }
    
 
+
+    public function indexw()
+    {
+        $prodw = Product::find(27);
+        $prod = $prodw->href;
+        return  $prod;
+    }
+
+
+
     /**
      * 1 шаг: Просмотр товаров конкретным пользователем.
      *
@@ -50,7 +60,6 @@ class ProductController extends Controller
      */
     public function create()
     {
-        
         return view('create-qaz');
     }
 
@@ -131,9 +140,12 @@ class ProductController extends Controller
         return redirect('/products');
     }
 
-   
-
-    // ДОБАВИТЬ НА ХОСТИНГ ФУНКЦИЮ УДАЛЕНИЯ ФАЙЛА ИЗ 
+    /**
+     * 5 шаг: Удаляет товар из базы по id 
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroy($id)
     {
         $this->client->deleteById($id);

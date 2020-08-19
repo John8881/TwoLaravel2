@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 class CreateReviewsTable extends Migration
 {
     /**
-     * Run the migrations.новый вааорыжрвап
+     * Run the migrations.
      *
      * @return void
      */
@@ -19,10 +19,6 @@ class CreateReviewsTable extends Migration
             $table->string('email');
             $table->string('text');
             $table->timestamps();
-        });
-        
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->string('ema');
         });
     }
 

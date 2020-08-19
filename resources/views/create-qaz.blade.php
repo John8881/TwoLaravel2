@@ -49,6 +49,17 @@
                         </div>
                     </div>
                     <div class="form-group required">
+                        <label for="input-email" class="col-sm-3 control-label">Ссылка на сайт</label>
+                        <div class="col-sm-9">
+                            <input  type="text" class="form-control @error('href') is-invalid @enderror"  name="href">
+                                @error('href')
+                                    
+                                        <strong>{{ $message }}</strong>
+                                    
+                                @enderror
+                        </div>
+                    </div>
+                    <div class="form-group required">
                         <label for="input-email" class="col-sm-3 control-label">Старая цена (руб)</label>
                         <div class="col-sm-9">
                             <input  type="number" class="form-control @error('old_price') is-invalid @enderror"   placeholder="123" name="old_price">
@@ -115,7 +126,7 @@
                         </div>
                     </div>
                 <div class="buttons">
-                    <div class="pull-right">Нажимая кнопку отправить, я соглашаюсь с <a class="agree" href="#"><b>политикой конфеденциальности </b></a>
+                    <div class="pull-right">Нажимая кнопку отправить, я соглашаюсь с <a class="agree" href="politics.doc" download="politics.doc"><b>политикой конфеденциальности </b></a>
                         <input type="submit" class="btn btn-primary" value="Отправить">
                     </div>
                 </div>

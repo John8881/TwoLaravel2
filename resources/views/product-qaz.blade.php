@@ -40,6 +40,9 @@
                             <label>Адрес:</label>
                             <span>{{ $item->address ?? 'Noaddress' }}</span></li>
                         <li>
+                            <label>Сайт:</label>
+                            <span><a href="{{ $item->href ?? 'Noaddress' }}" >{{ $item->href ?? 'Noaddress' }}</a></span></li>
+                        <li>
                             <label>Телефон:</label>
                             <span>{{ $item->tel ?? 'Notel' }}</span></li>
                     </ul>
